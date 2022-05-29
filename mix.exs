@@ -39,7 +39,8 @@ defmodule MossPiglet.Umbrella.MixProject do
   defp aliases do
     [
       # run `mix setup` in all child apps
-      setup: ["cmd mix setup"]
+      setup: ["cmd mix setup"],
+      "assets.deploy": ["cmd --cd ../moss_piglet_web/assets", "tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
   end
 end

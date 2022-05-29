@@ -1,25 +1,15 @@
-const colors = require("tailwindcss/colors");
-
 module.exports = {
   content: [
-    "../lib/*_web/**/*.*ex",
-    "./js/**/*.js",
-
-    // We need to include the Petal dependency so the classes get picked up by JIT.
-    "../deps/petal_components/**/*.*ex"
+    './js/**/*.js',
+    '../lib/*_web.ex',
+    '../lib/*_web/**/*.*ex',
   ],
-  darkMode: false,
   theme: {
-    extend: {
-
-      // Set these to your brand colors
-      colors: {
-        primary: colors.blue,
-        secondary: colors.pink,
-      },
-    },
+    extend: {},
   },
-
-  // Our form inputs depend on this plugin
-  plugins: [require("@tailwindcss/forms")],
-};
+  plugins: [
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
+}

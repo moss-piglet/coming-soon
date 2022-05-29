@@ -17,7 +17,8 @@ defmodule MossPigletWeb.Router do
   scope "/", MossPigletWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    #get "/", PageController, :index
+    live "/", LandingLive.Index, :index
   end
 
   # Other scopes may use custom stacks.
