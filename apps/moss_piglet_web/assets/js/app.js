@@ -24,14 +24,6 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
-// import Alpine
-import Alpine from "alpinejs";
-
-const { hook: motionHook, handleMotionUpdates } = createLiveMotion();
-
-// Add this before your liveSocket call.
-window.Alpine = Alpine;
-Alpine.start();
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
@@ -39,14 +31,7 @@ let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("
 let hooks = {...motionHook};
 let liveSocket = new LiveSocket("/live", Socket, {
   params: { _csrf_token: csrfToken },
-  hooks: hooks,
-  dom: {
-    onBeforeElUpdated(from, to) {
-      if (from._x_dataStack) {
-        window.Alpine.clone(from, to);
-      }
-    },
-  },
+  hooks: hooks
 });
 
 // Show progress bar on live navigation and form submits
