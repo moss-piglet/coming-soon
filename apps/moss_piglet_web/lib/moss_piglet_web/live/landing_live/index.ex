@@ -70,7 +70,7 @@ defmodule MossPigletWeb.LandingLive.Index do
             <h2 id="footer-heading" class="sr-only">Footer</h2>
             <div class="max-w-md mx-auto pt-12 px-4 sm:max-w-7xl sm:px-6 lg:pt-16 lg:px-8">
               <div class="mt-12 border-t border-gray-200 py-8">
-                <p class="text-base text-gray-400 xl:text-center">&copy; 2021 Moss Piglet Corporation. All rights reserved.</p>
+                <p class="text-base text-gray-400 xl:text-center">&copy; 2022 Moss Piglet Corporation. All rights reserved.</p>
               </div>
             </div>
           </footer>
