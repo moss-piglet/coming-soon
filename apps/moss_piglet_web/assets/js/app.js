@@ -28,7 +28,7 @@ import topbar from "../vendor/topbar"
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 // Add dom update support for Alpine.
-let hooks = {...motionHook};
+let hooks = {};
 let liveSocket = new LiveSocket("/live", Socket, {
   params: { _csrf_token: csrfToken },
   hooks: hooks
