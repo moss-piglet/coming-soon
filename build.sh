@@ -6,7 +6,10 @@ set -o errexit
 mix deps.get --only prod
 MIX_ENV=prod mix compile
 
-# Compile and deploy assets
+# Compile assets
+npm install --prefix ./apps/moss_piglet_web/assets
+
+# Deploy assets
 MIX_ENV=prod mix assets.deploy
 
 # Build the release and overwrite the existing release directory

@@ -52,8 +52,7 @@ defmodule MossPigletWeb.MixProject do
       {:jason, "~> 1.2"},
       {:plug_cowboy, "~> 2.5"},
       {:petal_components, "~> 0.16"},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
-      {:live_motion, "~> 0.1.1"}
+      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev}
     ]
   end
 
