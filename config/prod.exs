@@ -10,8 +10,13 @@ import Config
 # which you should run after static files are built and
 # before starting your production server.
 config :moss_piglet_web, MossPigletWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [scheme: "https", host: "mosspiglet.dev", port: 443],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  check_origin: true,
+  live_view: [
+    signing_salt: "${LIVEVIEW_SIGNING_SALT}",
+    encryption_salt: "${LIVE_VIEW_ENCRYPTION_SALT}"
+  ]
 
 # ## SSL Support
 #
