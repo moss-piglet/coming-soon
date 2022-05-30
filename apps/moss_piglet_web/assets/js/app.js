@@ -27,6 +27,10 @@ import topbar from "../vendor/topbar"
 // import Alpine
 import Alpine from "alpinejs";
 
+import { createLiveMotion } from 'live_motion';
+
+const { hook: motionHook, handleMotionUpdates } = createLiveMotion();
+
 // Add this before your liveSocket call.
 window.Alpine = Alpine;
 Alpine.start();
@@ -34,7 +38,7 @@ Alpine.start();
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 // Add dom update support for Alpine.
-let hooks = {};
+let hooks = {...motionHook};
 let liveSocket = new LiveSocket("/live", Socket, {
   params: { _csrf_token: csrfToken },
   hooks: hooks,
@@ -43,6 +47,7 @@ let liveSocket = new LiveSocket("/live", Socket, {
       if (from._x_dataStack) {
         window.Alpine.clone(from, to);
       }
+      handleMotionUpdates(from, to);
     },
   },
 });
