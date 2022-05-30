@@ -7,7 +7,7 @@ defmodule MossPigletWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_moss_piglet_web_key",
-    signing_salt: "Vlo0bbTv"
+    signing_salt: System.get_env("SESSION_SIGNING_SALT")
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
