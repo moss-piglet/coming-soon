@@ -27,8 +27,6 @@ import topbar from "../vendor/topbar"
 // import Alpine
 import Alpine from "alpinejs";
 
-import { createLiveMotion } from 'live_motion';
-
 const { hook: motionHook, handleMotionUpdates } = createLiveMotion();
 
 // Add this before your liveSocket call.
@@ -47,7 +45,6 @@ let liveSocket = new LiveSocket("/live", Socket, {
       if (from._x_dataStack) {
         window.Alpine.clone(from, to);
       }
-      handleMotionUpdates(from, to);
     },
   },
 });
