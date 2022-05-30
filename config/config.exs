@@ -47,14 +47,16 @@ config :esbuild,
   ]
 
 # Configure Tailwind
-config :tailwind, version: "3.0.24", default: [
-  args: ~w(
+config :tailwind,
+  version: "3.0.24",
+  default: [
+    args: ~w(
     --config=tailwind.config.js
     --input=css/app.css
     --output=../priv/static/assets/app.css
   ),
-  cd: Path.expand("../apps/moss_piglet_web/assets", __DIR__)
-]
+    cd: Path.expand("../apps/moss_piglet_web/assets", __DIR__)
+  ]
 
 # Configures Elixir's Logger
 config :logger, :console,
@@ -65,7 +67,9 @@ config :logger, :console,
 config :phoenix, :json_library, Jason
 
 # Configure form error translator for petal.build
-config :petal_components, :error_translator_function, {MossPigletWeb.ErrorHelpers, :translate_error}
+config :petal_components,
+       :error_translator_function,
+       {MossPigletWeb.ErrorHelpers, :translate_error}
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

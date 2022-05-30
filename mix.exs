@@ -7,7 +7,16 @@ defmodule MossPiglet.Umbrella.MixProject do
       version: "0.1.0",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-      aliases: aliases()
+      elixir: "~> 1.13",
+      aliases: aliases(),
+      releases: [
+        moss_piglet_umbrella: [
+          applications: [
+            moss_piglet: :permanent,
+            moss_piglet_web: :permanent
+          ]
+        ]
+      ]
     ]
   end
 
@@ -40,7 +49,12 @@ defmodule MossPiglet.Umbrella.MixProject do
     [
       # run `mix setup` in all child apps
       setup: ["cmd mix setup"],
-      "assets.deploy": ["cmd --cd ../moss_piglet_web/assets", "tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": [
+        "cmd --cd ../moss_piglet_web/assets",
+        "tailwind default --minify",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end
